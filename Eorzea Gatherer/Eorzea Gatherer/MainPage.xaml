@@ -1,14 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Eorzea_Gatherer"
-             x:Class="Eorzea_Gatherer.MainPage">
-
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
-
-</ContentPage>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:Eorzea_Gatherer"
+            xmlns:pages="clr-namespace:Eorzea_Gatherer.Pages"
+            x:Class="Eorzea_Gatherer.MainPage">
+    <pages:HomePage Title="Homepage" Icon="Homepage"/>
+    <pages:TrackingPage Title="Tracking" Icon="Tracking"/>
+    <pages:NodesPage Title="Nodes" Icon="Nodes"/>
+    <pages:SettingsPage Title="Settings" Icon="Settings"/>
+</TabbedPage>
