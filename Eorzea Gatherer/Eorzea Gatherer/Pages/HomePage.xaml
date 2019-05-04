@@ -12,7 +12,8 @@
                        FontFamily="SegoeUI"
                        FontSize="13" 
                        HorizontalOptions="Center"/>
-                <Label Text="00:00 AM"
+                <Label x:Name="eorzeaTimeLabel" 
+                       Text="00:00 AM"
                        TextColor="#171717"
                        FontFamily="Gilroy-Light"
                        FontSize="37"
