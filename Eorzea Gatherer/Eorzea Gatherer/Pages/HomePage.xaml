@@ -27,7 +27,7 @@
                         VerticalOptions="Fill"
                         HorizontalScrollBarVisibility="Never"
                         VerticalScrollBarVisibility="Never">
-                <Grid VerticalOptions="EndAndExpand">
+                <Grid x:Name="Griglia" VerticalOptions="EndAndExpand">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
@@ -46,7 +46,7 @@
                            WidthRequest="52"
                            HeightRequest="52"/>
                         <Label Text="Name"
-                           TextColor="#8E8E93"
+                           TextColor="#171717"
                            FontFamily="SegoeUI"
                            FontSize="12"
                            HorizontalTextAlignment="Center"/>
@@ -61,7 +61,7 @@
                            WidthRequest="52"
                            HeightRequest="52"/>
                         <Label Text="Name"
-                           TextColor="#8E8E93"
+                           TextColor="#171717"
                            FontFamily="SegoeUI"
                            FontSize="12"
                            HorizontalTextAlignment="Center"/>
@@ -76,7 +76,7 @@
                            WidthRequest="52"
                            HeightRequest="52"/>
                         <Label Text="Name"
-                           TextColor="#8E8E93"
+                           TextColor="#171717"
                            FontFamily="SegoeUI"
                            FontSize="12"
                            HorizontalTextAlignment="Center"/>
@@ -91,7 +91,7 @@
                            WidthRequest="52"
                            HeightRequest="52"/>
                         <Label Text="Name"
-                           TextColor="#8E8E93"
+                           TextColor="#171717"
                            FontFamily="SegoeUI"
                            FontSize="12"
                            HorizontalTextAlignment="Center"/>
@@ -106,7 +106,7 @@
                            WidthRequest="52"
                            HeightRequest="52"/>
                         <Label Text="Name"
-                           TextColor="#8E8E93"
+                           TextColor="#171717"
                            FontFamily="SegoeUI"
                            FontSize="12"
                            HorizontalTextAlignment="Center"/>
@@ -121,7 +121,7 @@
                            WidthRequest="52"
                            HeightRequest="52"/>
                         <Label Text="Name"
-                           TextColor="#8E8E93"
+                           TextColor="#171717"
                            FontFamily="SegoeUI"
                            FontSize="12"
                            HorizontalTextAlignment="Center"/>

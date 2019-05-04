@@ -29,22 +29,6 @@ namespace Eorzea_Gatherer.iOS
             // Color of the selected tab icon:
             UITabBar.Appearance.SelectedImageTintColor = UIColor.FromRGB(159, 38, 55);
 
-#if DEBUG
-            var fontList = new StringBuilder();
-            var familyNames = UIFont.FamilyNames;
-            foreach (var familyName in familyNames)
-            {
-                fontList.Append(String.Format("Family: {0}\n", familyName));
-                Console.WriteLine("Family: {0}\n", familyName);
-                var fontNames = UIFont.FontNamesForFamilyName(familyName);
-                foreach (var fontName in fontNames)
-                {
-                    Console.WriteLine("\tFont: {0}\n", fontName);
-                    fontList.Append(String.Format("\tFont: {0}\n", fontName));
-                }
-            };
-#endif
-
             return base.FinishedLaunching(app, options);
         }
     }
