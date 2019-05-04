@@ -16,7 +16,7 @@
                        FontSize="37"
                        HorizontalOptions="Center"/>
                 <SearchBar Placeholder="Search" 
-                           BackgroundColor="#F4F4F4"/>
+                           BackgroundColor="Transparent"/>
             </StackLayout>
             <BoxView Margin="0, 130" BackgroundColor="Black" 
                      HeightRequest="1"
