@@ -25,6 +25,10 @@ namespace Eorzea_Gatherer.iOS
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
+            //https://forums.xamarin.com/discussion/99122/how-to-set-color-to-icons-in-the-tabbedpage-in-ios
+            // Color of the selected tab icon:
+            UITabBar.Appearance.SelectedImageTintColor = UIColor.FromRGB(159, 38, 55);
+
             return base.FinishedLaunching(app, options);
         }
     }

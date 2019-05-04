@@ -3,10 +3,99 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Eorzea_Gatherer.Pages.HomePage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to the Home Page!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid BackgroundColor="#F4F4F4"
+              Padding="30">
+            <StackLayout HorizontalOptions="Center"
+                         VerticalOptions="Center">
+                <Label Text="Eorzea Time"
+                       TextColor="#8E8E93"
+                       FontSize="13" 
+                       HorizontalOptions="Center"/>
+                <Label Text="00:00 AM"
+                       TextColor="#171717"
+                       FontSize="37"
+                       HorizontalOptions="Center"/>
+                <SearchBar Placeholder="Search" 
+                           BackgroundColor="#F4F4F4"/>
+            </StackLayout>
+            <BoxView Margin="0, 130" BackgroundColor="Black" 
+                     HeightRequest="1"
+                     VerticalOptions="EndAndExpand"/>
+            
+            <Grid VerticalOptions="EndAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackLayout Grid.Column="0">
+                    <Label Text="00:00 AM"
+                           FontSize="12"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center"/>
+                    <Image Source=""
+                           BackgroundColor="Black"
+                           WidthRequest="52"
+                           HeightRequest="52"/>
+                    <Label Text="Name"
+                           FontSize="12"
+                           HorizontalTextAlignment="Center"/>
+                </StackLayout>
+                <StackLayout Grid.Column="1">
+                    <Label Text="00:00 AM"
+                           FontSize="12"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center"/>
+                    <Image Source=""
+                           BackgroundColor="Black"
+                           WidthRequest="52"
+                           HeightRequest="52"/>
+                    <Label Text="Name"
+                           FontSize="12"
+                           HorizontalTextAlignment="Center"/>
+                </StackLayout>
+                <StackLayout Grid.Column="2">
+                    <Label Text="00:00 AM"
+                           FontSize="12"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center"/>
+                    <Image Source=""
+                           BackgroundColor="Black"
+                           WidthRequest="52"
+                           HeightRequest="52"/>
+                    <Label Text="Name"
+                           FontSize="12"
+                           HorizontalTextAlignment="Center"/>
+                </StackLayout>
+                <StackLayout Grid.Column="3">
+                    <Label Text="00:00 AM"
+                           FontSize="12"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center"/>
+                    <Image Source=""
+                           BackgroundColor="Black"
+                           WidthRequest="52"
+                           HeightRequest="52"/>
+                    <Label Text="Name"
+                           FontSize="12"
+                           HorizontalTextAlignment="Center"/>
+                </StackLayout>
+                <StackLayout Grid.Column="4">
+                    <Label Text="00:00 AM"
+                           FontSize="12"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center"/>
+                    <Image Source=""
+                           BackgroundColor="Black"
+                           WidthRequest="52"
+                           HeightRequest="52"/>
+                    <Label Text="Name"
+                           FontSize="12"
+                           HorizontalTextAlignment="Center"/>
+                </StackLayout>
+            </Grid>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
