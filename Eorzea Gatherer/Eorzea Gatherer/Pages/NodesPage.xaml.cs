@@ -16,5 +16,10 @@ namespace Eorzea_Gatherer.Pages
 		{
 			InitializeComponent ();
 		}
-	}
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+        }
+    }
 }
