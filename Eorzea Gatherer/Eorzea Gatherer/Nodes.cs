@@ -26,6 +26,8 @@ namespace Eorzea_Gatherer
             public string slot { get; set; }
             public string scrip { get; set; }
             public Reduce reduce { get; set; }
+            public int lvl { get; set; }
+            public string zone { get; set; }
         }
 
         public class Node
@@ -56,6 +58,24 @@ namespace Eorzea_Gatherer
             List<Node> nodes = JsonConvert.DeserializeObject<List<Node>>(s);
 
             return nodes;
+        }
+
+        //Compiles a list of gatherable items from the nodes list
+        public static List<Nodes.Item> GetItems(List<Node> nodes)
+        {
+            List<Nodes.Item> items = new List<Item>();
+
+            foreach (var node in nodes)
+            {
+                foreach (var item in node.items)
+                {
+                    item.lvl = node.lvl;
+                    item.zone = ""//scrivere funzione;
+                    items.Add(item);
+                }
+            }
+
+            return items;
         }
 
         //Compiles a list of gatherable items from the nodes list

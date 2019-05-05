@@ -20,7 +20,7 @@
                                    TextColor="#171717"
                                    FontSize="13"
                                    FontFamily="SegoeUI"/>
-                            <Label Text="Lorem ipsum dolor sit amet"
+                            <Label Text="{Binding zone}"
                                    TextColor="#171717"
                                    FontSize="12"
                                    FontFamily="SegoeUI"/>
