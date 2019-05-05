@@ -70,7 +70,7 @@ namespace Eorzea_Gatherer
                 foreach (var item in node.items)
                 {
                     item.lvl = node.lvl;
-                    item.zone = ""//scrivere funzione;
+                    item.zone = String.Format("{0} ({1}, {2})", node.zone, node.coords[0], node.coords[1]);
                     items.Add(item);
                 }
             }

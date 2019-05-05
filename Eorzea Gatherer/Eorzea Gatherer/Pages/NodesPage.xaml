@@ -20,10 +20,18 @@
                                    TextColor="#171717"
                                    FontSize="13"
                                    FontFamily="SegoeUI"/>
-                            <Label Text="{Binding zone}"
-                                   TextColor="#171717"
+                            <!--https://forums.xamarin.com/discussion/97996/binding-more-than-one-property-in-listview-->
+                            <Label TextColor="#171717"
                                    FontSize="12"
-                                   FontFamily="SegoeUI"/>
+                                   FontFamily="SegoeUI">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding zone}"/>
+                                        <Span Text=" - "/>
+                                        <Span Text="{Binding slot}"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
                             <Label Text="Lorem ipsum dolor sit amet"
                                    TextColor="#171717"
                                    FontSize="12"
