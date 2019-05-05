@@ -102,6 +102,12 @@
     </BundleResource>
     <BundleResource Include="Resources\Segoe UI.ttf" />
     <BundleResource Include="Resources\Segoe UI Semibold.ttf" />
+    <EmbeddedResource Include="Resources\Nodes.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Content Include="Nodes.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\Background.imageset\Background.pdf">

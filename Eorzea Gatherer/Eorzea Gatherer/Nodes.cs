@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using Xamarin.Forms.Internals;
 
 namespace Eorzea_Gatherer
 {
@@ -47,16 +49,13 @@ namespace Eorzea_Gatherer
         #endregion
 
         #region Methods
-        //Get the nodes from the JSON file and return a list of nodes
+        //Get the nodes from the JSON file and return a list of nodes 
         public static List<Node> GetNodes()
         {
-            using (StreamReader streamReader = new StreamReader(AppDomain.CurrentDomain.BaseDirectory + "Nodes.json"))
-            {
-                string s = streamReader.ReadToEnd();
-                List<Node> nodes = JsonConvert.DeserializeObject<List<Node>>(s);
+            string s = File.ReadAllText("Nodes.json");
+            List<Node> nodes = JsonConvert.DeserializeObject<List<Node>>(s);
 
-                return nodes;
-            }
+            return nodes;
         }
 
         //Compiles a list of gatherable items from the nodes list
