@@ -28,6 +28,7 @@ namespace Eorzea_Gatherer
             public Reduce reduce { get; set; }
             public int lvl { get; set; }
             public string zone { get; set; }
+            public int time { get; set; }
         }
 
         public class Node
@@ -67,11 +68,15 @@ namespace Eorzea_Gatherer
 
             foreach (var node in nodes)
             {
-                foreach (var item in node.items)
+                foreach (var time in node.time)
                 {
-                    item.lvl = node.lvl;
-                    item.zone = String.Format("{0} ({1}, {2})", node.zone, node.coords[0], node.coords[1]);
-                    items.Add(item);
+                    foreach (var item in node.items)
+                    {
+                        item.time = time;
+                        item.lvl = node.lvl;
+                        item.zone = String.Format("{0} ({1}, {2})", node.zone, node.coords[0], node.coords[1]);
+                        items.Add(item);
+                    }
                 }
             }
 
