@@ -15,16 +15,15 @@ namespace Eorzea_Gatherer.Pages
 		public NodesPage()
 		{
 			InitializeComponent();
+
+            //Load the list of unique items
+            var nodes = Nodes.GetUniqueItems(Nodes.GetNodes());
+            nodesListView.ItemsSource = nodes;
 		}
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
-            foreach (var item in Nodes.GetUniqueItems(Nodes.GetNodes()))
-            {
-                Debug.WriteLine(item.item);
-            }
         }
     }
 }

@@ -2,7 +2,36 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Eorzea_Gatherer.Pages.NodesPage">
-    <ListView>
-        
+    <ListView x:Name="nodesListView"
+              RowHeight="60">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source=""
+                               BackgroundColor="Black"
+                               Grid.Column="0"/>
+                        <StackLayout Grid.Column="1">
+                            <Label Text="{Binding item}"
+                                   TextColor="#171717"
+                                   FontSize="13"
+                                   FontFamily="SegoeUI"/>
+                            <Label Text="Lorem ipsum dolor sit amet"
+                                   TextColor="#171717"
+                                   FontSize="12"
+                                   FontFamily="SegoeUI"/>
+                            <Label Text="Lorem ipsum dolor sit amet"
+                                   TextColor="#171717"
+                                   FontSize="12"
+                                   FontFamily="SegoeUI"/>
+                        </StackLayout>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
     </ListView>
 </ContentPage>
