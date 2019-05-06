@@ -14,17 +14,24 @@
             <StackLayout x:Name="SL"
                          HorizontalOptions="Center"
                          VerticalOptions="Center">
-                <Label Text="Eorzea Time"
+                <Label Text="Eorzea Time" 
                        TextColor="#8E8E93"
                        FontFamily="SegoeUI"
-                       FontSize="13" 
-                       HorizontalOptions="Center"/>
+                       HorizontalOptions="Center">
+                    <Label.FontSize>
+                        <!--https://forums.xamarin.com/discussion/75733/how-to-use-onidiom-to-reference-onplatform-data-in-xaml-->
+                        <OnIdiom x:TypeArguments="x:Double" Phone="13" Tablet="25"/>
+                    </Label.FontSize>
+                </Label>
                 <Label x:Name="eorzeaTimeLabel" 
                        Text="00:00 AM"
                        TextColor="#171717"
                        FontFamily="Gilroy-Light"
-                       FontSize="37"
-                       HorizontalOptions="Center"/>
+                       HorizontalOptions="Center">
+                    <Label.FontSize>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="37" Tablet="71"/>
+                    </Label.FontSize>
+                </Label>
                 <SearchBar Placeholder="Search" 
                            BackgroundColor="Transparent"/>
             </StackLayout>
