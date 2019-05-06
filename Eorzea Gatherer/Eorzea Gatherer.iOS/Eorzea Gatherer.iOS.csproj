@@ -113,6 +113,9 @@
     <ImageAsset Include="Assets.xcassets\Background.imageset\Background.pdf">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Dalamud.imageset\Dalamud.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\Homepage.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -120,6 +123,9 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\Background.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Dalamud.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\Tracking.imageset\Contents.json">

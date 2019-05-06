@@ -2,10 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Eorzea_Gatherer.Pages.HomePage"
-             BackgroundImage="Background">
+             BackgroundColor="#F4F4F4">
     <ContentPage.Content>
         <Grid Padding="30">
-            <StackLayout HorizontalOptions="Center"
+            <RelativeLayout>
+                <Image Source="Dalamud"
+                       RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=-50}"
+                       RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                       RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
+            </RelativeLayout>
+            <StackLayout x:Name="SL"
+                         HorizontalOptions="Center"
                          VerticalOptions="Center">
                 <Label Text="Eorzea Time"
                        TextColor="#8E8E93"
