@@ -1,9 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Eorzea_Gatherer.Pages.NodesPage">
+             x:Class="Eorzea_Gatherer.Pages.NodesPage"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true"
+             BackgroundColor="#F4F4F4">
+    <!--https://xamarinhelp.com/safeareainsets-xamarin-forms-ios/-->
     <ListView x:Name="nodesListView"
-              HasUnevenRows="True">
+              HasUnevenRows="True"
+              BackgroundColor="#F4F4F4">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
@@ -37,9 +42,9 @@
                                    FontFamily="SegoeUI">
                                 <Label.FormattedText>
                                     <FormattedString>
-                                        <Span Text="{Binding zone}"/>
+                                        <Span Text="{Binding time}"/>
                                         <Span Text=" - "/>
-                                        <Span Text="{Binding slot}"/>
+                                        <Span Text="00:00 AM"/>
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
