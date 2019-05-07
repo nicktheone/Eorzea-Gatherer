@@ -8,11 +8,12 @@
     <!--https://xamarinhelp.com/safeareainsets-xamarin-forms-ios/-->
     <ListView x:Name="nodesListView"
               HasUnevenRows="True"
-              BackgroundColor="#F4F4F4">
+              BackgroundColor="#F4F4F4"
+              Margin="30, 30, 30, 0">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <Grid Margin="5">
+                    <Grid Padding="0, 5">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="60"/>
                             <ColumnDefinition/>
