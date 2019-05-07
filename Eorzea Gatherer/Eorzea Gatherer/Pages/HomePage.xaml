@@ -9,7 +9,11 @@
                 <Image Source="Dalamud"
                        RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=-50}"
                        RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent, Property=Width}"
-                       RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
+                       RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent, Property=Height}">
+                    <RelativeLayout.XConstraint>
+                        <OnIdiom x:TypeArguments="Constraint" Phone="{ConstraintExpression Type=Constant, Constant=5}" Tablet="{ConstraintExpression Type=Constant, Constant=18}"/>
+                    </RelativeLayout.XConstraint>
+                </Image>
             </RelativeLayout>
             <StackLayout x:Name="SL"
                          HorizontalOptions="Center"
