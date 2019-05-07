@@ -18,6 +18,8 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <Image Source=""
+                               HeightRequest="50"
+                               WidthRequest="50"
                                BackgroundColor="Black"
                                Grid.Column="0"/>
                         <StackLayout Grid.Column="1">
