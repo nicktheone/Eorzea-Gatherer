@@ -17,10 +17,9 @@
                             <ColumnDefinition Width="60"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Image Source=""
+                        <Image Source="{Binding icon}"
                                HeightRequest="50"
                                WidthRequest="50"
-                               BackgroundColor="Black"
                                Grid.Column="0"/>
                         <StackLayout Grid.Column="1">
                             <Label Text="{Binding item}"

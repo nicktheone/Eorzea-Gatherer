@@ -18,7 +18,15 @@ namespace Eorzea_Gatherer
         public class Item
         {
             public string item { get; set; }
-            public int icon { get; set; }
+            //public int icon { get; set; }
+
+            private string ico;
+            public string icon
+            {
+                get { return ico; }
+                set { ico = "Icons/" + value + ".png"; }
+            }
+
             public int id { get; set; }
             public string slot { get; set; }
             public string scrip { get; set; }
