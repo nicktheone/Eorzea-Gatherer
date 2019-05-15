@@ -56,9 +56,17 @@ namespace Eorzea_Gatherer
         }
         #endregion
 
+        #region Sorted Lists
+        public class SortedItem : List<Item>
+        {
+            public string Header { get; set; }
+            public List<Item> Items { get; set; }
+        }
+        #endregion
+
         #region Methods
         //Get the nodes from the JSON file and return a list of nodes 
-        public static List<Node> GetNodes()
+        private static List<Node> GetNodes()
         {
             string s = File.ReadAllText("Nodes.json");
             List<Node> nodes = JsonConvert.DeserializeObject<List<Node>>(s);
@@ -67,9 +75,10 @@ namespace Eorzea_Gatherer
         }
 
         //Compiles a list of gatherable items from the nodes list
-        public static List<Nodes.Item> GetItems(List<Node> nodes)
+        public static List<Item> GetItems()
         {
-            List<Nodes.Item> items = new List<Item>();
+            List<Node> nodes = GetNodes();
+            List<Item> items = new List<Item>();
 
             foreach (var node in nodes)
             {
@@ -88,8 +97,53 @@ namespace Eorzea_Gatherer
             return items;
         }
 
+        public static List<SortedItem> GetSortedItems()
+        {
+            List<Item> items = GetItems();
+
+            //List<List<Item>> aaa = items.GroupBy(x => x.lvl).Select(y => y.ToList()).ToList();
+
+            //Initialize every list based on the level bracket of the items and assign its respective items
+            SortedItem a = new SortedItem()
+            {
+                Header = "50",
+                Items = items.Where(item => item.lvl == 50).ToList()
+            };
+            SortedItem b = new SortedItem()
+            {
+                Header = "55",
+                Items = items.Where(item => item.lvl == 55).ToList()
+            };
+            SortedItem c = new SortedItem()
+            {
+                Header = "60",
+                Items = items.Where(item => item.lvl == 60).ToList()
+            };
+            SortedItem d = new SortedItem()
+            {
+                Header = "65",
+                Items = items.Where(item => item.lvl == 65).ToList()
+            };
+            SortedItem e = new SortedItem()
+            {
+                Header = "70",
+                Items = items.Where(item => item.lvl == 70).ToList()
+            };
+
+            var sortedItems = new List<SortedItem>()
+            {
+                a,
+                b,
+                c,
+                d,
+                e
+            };
+
+            return sortedItems;
+        }
+
         //Compiles a list of gatherable items from the nodes list
-        public static List<Nodes.Item> GetUniqueItems(List<Node> nodes)
+        public static List<Item> GetUniqueItems(List<Node> nodes)
         {
             List<Nodes.Item> uniqueItems = new List<Item>();
 
