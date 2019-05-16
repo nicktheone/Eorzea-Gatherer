@@ -7,6 +7,8 @@
              BackgroundColor="#F4F4F4">
     <!--https://xamarinhelp.com/safeareainsets-xamarin-forms-ios/-->
     <ListView x:Name="nodesListView"
+              IsGroupingEnabled="True"
+              GroupDisplayBinding="{Binding Header}"
               HasUnevenRows="True"
               BackgroundColor="#F4F4F4"
               Margin="30, 30, 30, 0">

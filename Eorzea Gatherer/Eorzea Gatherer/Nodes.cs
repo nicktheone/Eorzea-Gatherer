@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 
@@ -57,10 +58,14 @@ namespace Eorzea_Gatherer
         #endregion
 
         #region Sorted Lists
-        public class SortedItem : List<Item>
+        public class SortedItem : ObservableCollection<Item>
         {
             public string Header { get; set; }
-            public List<Item> Items { get; set; }
+
+            public SortedItem(List<Item> items) : base(items)
+            {
+                    
+            }
         }
         #endregion
 
@@ -75,7 +80,7 @@ namespace Eorzea_Gatherer
         }
 
         //Compiles a list of gatherable items from the nodes list
-        public static List<Item> GetItems()
+        private static List<Item> GetItems()
         {
             List<Node> nodes = GetNodes();
             List<Item> items = new List<Item>();
@@ -101,42 +106,28 @@ namespace Eorzea_Gatherer
         {
             List<Item> items = GetItems();
 
-            //List<List<Item>> aaa = items.GroupBy(x => x.lvl).Select(y => y.ToList()).ToList();
-
-            //Initialize every list based on the level bracket of the items and assign its respective items
-            SortedItem a = new SortedItem()
+            List<SortedItem> sortedItems = new List<SortedItem>()
             {
-                Header = "50",
-                Items = items.Where(item => item.lvl == 50).ToList()
-            };
-            SortedItem b = new SortedItem()
-            {
-                Header = "55",
-                Items = items.Where(item => item.lvl == 55).ToList()
-            };
-            SortedItem c = new SortedItem()
-            {
-                Header = "60",
-                Items = items.Where(item => item.lvl == 60).ToList()
-            };
-            SortedItem d = new SortedItem()
-            {
-                Header = "65",
-                Items = items.Where(item => item.lvl == 65).ToList()
-            };
-            SortedItem e = new SortedItem()
-            {
-                Header = "70",
-                Items = items.Where(item => item.lvl == 70).ToList()
-            };
-
-            var sortedItems = new List<SortedItem>()
-            {
-                a,
-                b,
-                c,
-                d,
-                e
+                new SortedItem(items.Where(x => x.lvl == 50).ToList())
+                {
+                   Header = "50"
+                },
+                new SortedItem(items.Where(x => x.lvl == 55).ToList())
+                {
+                   Header = "55"
+                },
+                new SortedItem(items.Where(x => x.lvl == 60).ToList())
+                {
+                   Header = "60"
+                },
+                new SortedItem(items.Where(x => x.lvl == 65).ToList())
+                {
+                   Header = "65"
+                },
+                new SortedItem(items.Where(x => x.lvl == 70).ToList())
+                {
+                   Header = "70"
+                }
             };
 
             return sortedItems;
