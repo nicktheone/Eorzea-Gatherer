@@ -29,8 +29,10 @@ namespace Eorzea_Gatherer.Pages
         #region Events
         public void AddTracking(object sender, EventArgs e)
         {
-            var mi = ((MenuItem)sender);
-            DisplayAlert("Alarm", "ALAAAAR", "alarm");
+            //Retrieves the object bound to the cell raising the event
+            var mi = (MenuItem)sender;
+            var item = (Nodes.Item)mi.BindingContext;
+            DisplayAlert(item.id.ToString(), item.item, item.GetType().ToString());
         }
         #endregion
     }
