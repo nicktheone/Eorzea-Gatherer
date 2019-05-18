@@ -1,12 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Eorzea_Gatherer.Pages.TrackingPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to the Tracking Page!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+             x:Class="Eorzea_Gatherer.Pages.TrackingPage"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true"
+             BackgroundColor="#F4F4F4">
+    <ListView x:Name="trackingListView"
+              HasUnevenRows="True"
+              BackgroundColor="#F4F4F4"
+              Margin="30, 30, 30, 0">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid Padding="0, 5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="{Binding icon}"
+                               HeightRequest="50"
+                               WidthRequest="50"
+                               Grid.Column="0"/>
+                        <StackLayout Grid.Column="1">
+                            <Label Text="{Binding item}"
+                                   TextColor="#171717"
+                                   FontSize="13"
+                                   FontFamily="SegoeUI"/>
+                            <!--https://forums.xamarin.com/discussion/97996/binding-more-than-one-property-in-listview-->
+                            <Label TextColor="#171717"
+                                   FontSize="12"
+                                   FontFamily="SegoeUI">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding zone}"/>
+                                        <Span Text=" - "/>
+                                        <Span Text="{Binding slot}"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label TextColor="#171717"
+                                   FontSize="12"
+                                   FontFamily="SegoeUI">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding time}"/>
+                                        <Span Text=" - "/>
+                                        <Span Text="00:00 AM"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>

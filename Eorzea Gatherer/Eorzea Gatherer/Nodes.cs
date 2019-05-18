@@ -62,6 +62,7 @@ namespace Eorzea_Gatherer
         {
             public string Header { get; set; }
 
+            //https://stackoverflow.com/questions/56158133/populating-a-grouped-listview-from-a-list
             public SortedItem(List<Item> items) : base(items)
             {
                     
@@ -102,6 +103,7 @@ namespace Eorzea_Gatherer
             return items;
         }
 
+        //Splits the list of gatherable items into different lists to bind into a grouped ListView
         public static List<SortedItem> GetSortedItems()
         {
             List<Item> items = GetItems();

@@ -8,10 +8,19 @@
     <!--https://xamarinhelp.com/safeareainsets-xamarin-forms-ios/-->
     <ListView x:Name="nodesListView"
               IsGroupingEnabled="True"
-              GroupDisplayBinding="{Binding Header}"
               HasUnevenRows="True"
               BackgroundColor="#F4F4F4"
               Margin="30, 30, 30, 0">
+        <ListView.GroupHeaderTemplate>
+            <DataTemplate>
+                <ViewCell Height="30">
+                    <Label BackgroundColor="#F4F4F4"
+                           Text="{Binding Header}"
+                           TextColor="#171717"
+                           VerticalTextAlignment="Center"/>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.GroupHeaderTemplate>
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
