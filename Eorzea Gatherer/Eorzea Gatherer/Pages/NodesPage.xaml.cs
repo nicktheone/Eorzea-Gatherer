@@ -17,9 +17,8 @@ namespace Eorzea_Gatherer.Pages
 			InitializeComponent();
 
             //Load the list of unique items
-            var nodes = Nodes.GetSortedItems();
-            nodesListView.ItemsSource = nodes;
-		}
+            nodesListView.ItemsSource = Nodes.SortedItem.SortedItems;
+        }
 
         protected override void OnAppearing()
         {
