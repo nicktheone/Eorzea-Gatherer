@@ -25,5 +25,13 @@ namespace Eorzea_Gatherer.Pages
         {
             base.OnAppearing();
         }
+
+        #region Events
+        public void AddTracking(object sender, EventArgs e)
+        {
+            var mi = ((MenuItem)sender);
+            DisplayAlert("Alarm", "ALAAAAR", "alarm");
+        }
+        #endregion
     }
 }

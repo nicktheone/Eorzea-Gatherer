@@ -24,6 +24,10 @@
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
+                    <ViewCell.ContextActions>
+                        <MenuItem Clicked="AddTracking"
+                                  Text="Add to Tracking" />
+                    </ViewCell.ContextActions>
                     <Grid Padding="0, 5">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="60"/>
