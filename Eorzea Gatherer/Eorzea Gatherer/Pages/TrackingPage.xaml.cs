@@ -12,8 +12,6 @@ namespace Eorzea_Gatherer.Pages
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class TrackingPage : ContentPage
 	{
-        public static List<Nodes.Item> TrackingList { get; set; }
-
         public TrackingPage ()
 		{
 			InitializeComponent ();
@@ -23,7 +21,9 @@ namespace Eorzea_Gatherer.Pages
         {
             base.OnAppearing();
 
-            trackingListView.ItemsSource = TrackingList;
+            //Set and refresh the ListView source
+            trackingListView.ItemsSource = null;
+            trackingListView.ItemsSource = Nodes.TrackingList.Items;
         }
     }
 }

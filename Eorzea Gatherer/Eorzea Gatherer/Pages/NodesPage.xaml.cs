@@ -29,10 +29,13 @@ namespace Eorzea_Gatherer.Pages
         #region Events
         public void AddTracking(object sender, EventArgs e)
         {
-            //Retrieves the object bound to the cell raising the event
+            //Retrieve the object bound to the cell raising the event
             var mi = (MenuItem)sender;
             var item = (Nodes.Item)mi.BindingContext;
-            DisplayAlert(item.id.ToString(), item.item, item.GetType().ToString());
+            //DisplayAlert(item.id.ToString(), item.item, item.GetType().ToString());
+
+            //Add node to the tracking list view
+            Nodes.TrackingList.Items.Add(item);
         }
         #endregion
     }

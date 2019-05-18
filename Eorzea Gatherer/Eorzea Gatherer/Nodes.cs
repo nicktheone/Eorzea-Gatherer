@@ -70,6 +70,18 @@ namespace Eorzea_Gatherer
         }
         #endregion
 
+        #region Tracking List
+        public class TrackingList
+        {
+            public static List<Item> Items { get; set; }
+
+            static TrackingList()
+            {
+                Items = new List<Item>();
+            }
+        }
+        #endregion
+
         #region Methods
         //Get the nodes from the JSON file and return a list of nodes 
         private static List<Node> GetNodes()
