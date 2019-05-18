@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Eorzea_Gatherer
 {
-    class Nodes
+    public class Nodes
     {
         #region JSON
         public class Reduce
