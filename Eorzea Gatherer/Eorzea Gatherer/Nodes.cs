@@ -99,7 +99,7 @@ namespace Eorzea_Gatherer
             return nodes;
         }
 
-        //Compiles a list of gatherable items from the nodes list
+        //Compile a list of gatherable items from the nodes list
         private static List<Item> GetItems()
         {
             List<Node> nodes = GetNodes();
@@ -122,7 +122,7 @@ namespace Eorzea_Gatherer
             return items;
         }
 
-        //Splits the list of gatherable items into different lists to bind into a grouped ListView
+        //Split the list of gatherable items into different lists to bind into a grouped ListView
         public static List<SortedItem> GetSortedItems()
         {
             List<Item> items = GetItems();
@@ -154,8 +154,8 @@ namespace Eorzea_Gatherer
             return sortedItems;
         }
 
-        //Compiles a list of gatherable items from the nodes list
-        public static List<Item> GetUniqueItems(List<Node> nodes)
+        //Compile a list of gatherable items from the nodes list (not used)
+        private static List<Item> GetUniqueItems(List<Node> nodes)
         {
             List<Nodes.Item> uniqueItems = new List<Item>();
 
@@ -172,6 +172,7 @@ namespace Eorzea_Gatherer
             }
 
             return uniqueItems;
+        }
         }
         #endregion
     }

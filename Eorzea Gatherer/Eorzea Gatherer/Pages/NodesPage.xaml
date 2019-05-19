@@ -10,14 +10,16 @@
               IsGroupingEnabled="True"
               HasUnevenRows="True"
               BackgroundColor="#F4F4F4"
-              Margin="30, 30, 30, 0">
+              Margin="30, 15, 30, 0">
         <ListView.GroupHeaderTemplate>
             <DataTemplate>
                 <ViewCell Height="30">
                     <Label BackgroundColor="#F4F4F4"
-                           Text="{Binding Header}"
+                           Text="{Binding Header, StringFormat='Level {0}'}"
+                           FontFamily="SegoeUI"
                            TextColor="#171717"
-                           VerticalTextAlignment="Center"/>
+                           VerticalTextAlignment="Center"
+                           Margin="5, 0, 0, 0"/>
                 </ViewCell>
             </DataTemplate>
         </ListView.GroupHeaderTemplate>
