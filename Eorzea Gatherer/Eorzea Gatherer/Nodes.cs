@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using Xamarin.Forms;
 
 namespace Eorzea_Gatherer
 {
@@ -79,11 +80,11 @@ namespace Eorzea_Gatherer
         #region Tracking List
         public class TrackingList
         {
-            public static List<Item> Items { get; set; }
+            public static ObservableCollection<Item> Items { get; set; }
 
             static TrackingList()
             {
-                Items = new List<Item>();
+                Items = new ObservableCollection<Item>();
             }
         }
         #endregion

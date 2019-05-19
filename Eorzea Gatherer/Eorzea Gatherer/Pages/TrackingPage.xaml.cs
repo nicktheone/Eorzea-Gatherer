@@ -15,15 +15,14 @@ namespace Eorzea_Gatherer.Pages
         public TrackingPage ()
 		{
 			InitializeComponent ();
-		}
+
+            //Set and refresh the ListView source
+            trackingListView.ItemsSource = Nodes.TrackingList.Items;
+        }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
-            //Set and refresh the ListView source
-            trackingListView.ItemsSource = null;
-            trackingListView.ItemsSource = Nodes.TrackingList.Items;
         }
 
         #region Events
