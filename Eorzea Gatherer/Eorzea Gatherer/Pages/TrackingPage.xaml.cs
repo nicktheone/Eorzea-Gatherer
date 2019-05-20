@@ -34,6 +34,9 @@ namespace Eorzea_Gatherer.Pages
 
             //Remove node to the tracking list view
             Nodes.TrackingList.Items.Remove(item);
+
+            //Save the tracking list on the disk
+            Nodes.SaveTrackingList();
         }
         #endregion
     }
