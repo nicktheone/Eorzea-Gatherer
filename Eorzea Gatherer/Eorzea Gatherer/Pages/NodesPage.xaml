@@ -56,7 +56,7 @@
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
-                            <Label Text="{Binding time, StringFormat='{}{0:hh:mm} - 00:00 AM'}"
+                            <Label Text="{Binding time, StringFormat='{}{0:hh:mm tt} - 00:00 AM'}"
                                    TextColor="#171717"
                                    FontSize="12"
                                    FontFamily="SegoeUI">

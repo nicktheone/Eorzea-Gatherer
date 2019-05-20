@@ -48,7 +48,7 @@
                                    FontFamily="SegoeUI">
                                 <Label.FormattedText>
                                     <FormattedString>
-                                        <Span Text="{Binding time}"/>
+                                        <Span Text="{Binding time, StringFormat='{}{0:hh:mm tt}'}"/>
                                         <Span Text=" - "/>
                                         <Span Text="00:00 AM"/>
                                     </FormattedString>
