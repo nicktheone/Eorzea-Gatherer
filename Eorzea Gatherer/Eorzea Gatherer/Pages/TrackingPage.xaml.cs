@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +17,16 @@ namespace Eorzea_Gatherer.Pages
         public TrackingPage ()
 		{
 			InitializeComponent ();
+
+            try
+            {
+                //Load the tracking list from the disk
+                Nodes.ReadTrackingList();
+            }
+            catch (Exception)
+            {
+
+            }
 
             //Set and refresh the ListView source
             trackingListView.ItemsSource = Nodes.TrackingList.Items;

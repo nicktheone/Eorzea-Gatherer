@@ -35,7 +35,7 @@
                             <ColumnDefinition Width="60"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Image Source="{Binding icon}"
+                        <Image Source="{Binding icon, StringFormat='Icons/{0}.png'}"
                                HeightRequest="50"
                                WidthRequest="50"
                                Grid.Column="0"/>

@@ -19,15 +19,7 @@ namespace Eorzea_Gatherer
         public class Item
         {
             public string item { get; set; }
-            //public int icon { get; set; }
-
-            private string ico;
-            public string icon
-            {
-                get { return ico; }
-                set { ico = "Icons/" + value + ".png"; }
-            }
-
+            public string icon { get; set; }
             public int id { get; set; }
             public string slot { get; set; }
             public string scrip { get; set; }
@@ -185,6 +177,19 @@ namespace Eorzea_Gatherer
 
                 jsonSerializer.Serialize(streamWriter, TrackingList.Items);
             }
+        }
+
+        //Read the tracking list from the disk
+        public static void ReadTrackingList()
+        {
+            string s = null;
+
+            using (StreamReader streamReader = new StreamReader(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Tracking.json")))
+            {
+                s = streamReader.ReadToEnd();
+            }
+
+            Nodes.TrackingList.Items = JsonConvert.DeserializeObject<ObservableCollection<Nodes.Item>>(s);
         }
         #endregion
     }
