@@ -176,19 +176,15 @@ namespace Eorzea_Gatherer
         //Write the tracking list to the disk
         public static void SaveTrackingList()
         {
-            //using (StreamWriter streamWriter = File.CreateText("Tracking.json"))
-            //{
-            //    JsonSerializer jsonSerializer = new JsonSerializer()
-            //    {
-            //        Formatting = Formatting.Indented
-            //    };
+            using (StreamWriter streamWriter = File.CreateText(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Tracking.json")))
+            {
+                JsonSerializer jsonSerializer = new JsonSerializer()
+                {
+                    Formatting = Formatting.Indented
+                };
 
-            //    jsonSerializer.Serialize(streamWriter, TrackingList.Items);
-            //}
-
-            string json = JsonConvert.SerializeObject(TrackingList.Items, Formatting.Indented);
-            string file = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Tracking.json");
-            File.WriteAllText(file, json);
+                jsonSerializer.Serialize(streamWriter, TrackingList.Items);
+            }
         }
         #endregion
     }
