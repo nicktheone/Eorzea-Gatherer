@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,22 +13,24 @@ namespace Eorzea_Gatherer.Pages
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class HomePage : ContentPage
 	{
-		public HomePage()
+        #region BindableProperty
+        //https://forums.xamarin.com/discussion/comment/375451#Comment_375451
+        public static readonly BindableProperty EorzeaTimeNowProperty = BindableProperty.Create(
+            nameof(EorzeaTimeNow),
+            typeof(DateTime),
+            typeof(HomePage),
+            default(DateTime));
+
+        public DateTime EorzeaTimeNow
+        {
+            get => (DateTime)GetValue(EorzeaTimeNowProperty);
+            set => SetValue(EorzeaTimeNowProperty, value);
+        }
+        #endregion
+
+        public HomePage()
 		{
-			InitializeComponent ();
-
-            Griglia.ColumnDefinitions.Add(new ColumnDefinition { });
-            var stack = new StackLayout();
-
-            var label = new Label { Text = "Prova", FontSize = 12, FontFamily = "SegoeUI-Semibold", HorizontalTextAlignment = TextAlignment.Center };
-            var image = new Image { Source = "", BackgroundColor = Color.Black, HeightRequest = 52, WidthRequest = 52 };
-            var label2 = new Label { Text = "Provaaa", FontSize = 12, FontFamily = "SegoeUI", HorizontalTextAlignment = TextAlignment.Center };
-
-            stack.Children.Add(label);
-            stack.Children.Add(image);
-            stack.Children.Add(label2);
-
-            Griglia.Children.Add(stack, 6, 0);
+			InitializeComponent ();;
         }
 
         protected override void OnAppearing()
@@ -41,8 +42,7 @@ namespace Eorzea_Gatherer.Pages
             Device.StartTimer(TimeSpan.FromMilliseconds(1000), () =>
             {
                 //https://stackoverflow.com/a/7875351/10617365
-                var eorzeaTimeNow = DateTime.Now.ToEorzeaTime().ToString("hh:mm tt", CultureInfo.InvariantCulture);
-                eorzeaTimeLabel.Text = eorzeaTimeNow;
+                EorzeaTimeNow = DateTime.Now.ToEorzeaTime();
 
                 return true;
             });

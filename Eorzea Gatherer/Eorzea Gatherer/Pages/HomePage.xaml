@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Eorzea_Gatherer.Pages.HomePage"
+             x:Name="MyHomePage"
              BackgroundColor="#F4F4F4">
     <ContentPage.Content>
         <Grid Padding="30">
@@ -27,8 +28,7 @@
                         <OnIdiom x:TypeArguments="x:Double" Phone="13" Tablet="25"/>
                     </Label.FontSize>
                 </Label>
-                <Label x:Name="eorzeaTimeLabel" 
-                       Text="00:00 AM"
+                <Label Text="{Binding EorzeaTimeNow, StringFormat='{}{0:hh:mm}', Source={x:Reference MyHomePage}}"
                        TextColor="#171717"
                        FontFamily="Gilroy-Light"
                        HorizontalOptions="Center">
