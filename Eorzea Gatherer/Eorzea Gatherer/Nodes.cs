@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
-using Xamarin.Forms;
 
 namespace Eorzea_Gatherer
 {
@@ -173,6 +172,23 @@ namespace Eorzea_Gatherer
 
             return uniqueItems;
         }
+
+        //Write the tracking list to the disk
+        public static void SaveTrackingList()
+        {
+            //using (StreamWriter streamWriter = File.CreateText("Tracking.json"))
+            //{
+            //    JsonSerializer jsonSerializer = new JsonSerializer()
+            //    {
+            //        Formatting = Formatting.Indented
+            //    };
+
+            //    jsonSerializer.Serialize(streamWriter, TrackingList.Items);
+            //}
+
+            string json = JsonConvert.SerializeObject(TrackingList.Items, Formatting.Indented);
+            string file = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Tracking.json");
+            File.WriteAllText(file, json);
         }
         #endregion
     }

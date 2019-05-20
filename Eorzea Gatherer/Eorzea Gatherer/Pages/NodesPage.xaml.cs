@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using System.Diagnostics;
 
 namespace Eorzea_Gatherer.Pages
 {
@@ -31,10 +31,12 @@ namespace Eorzea_Gatherer.Pages
             //Retrieve the object bound to the cell raising the event
             var mi = (MenuItem)sender;
             var item = (Nodes.Item)mi.BindingContext;
-            //DisplayAlert(item.id.ToString(), item.item, item.GetType().ToString());
 
             //Add node to the tracking list view
             Nodes.TrackingList.Items.Add(item);
+
+            //Save the tracking list on the disk
+            Nodes.SaveTrackingList();
         }
         #endregion
     }
