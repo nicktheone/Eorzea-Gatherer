@@ -26,7 +26,7 @@ namespace Eorzea_Gatherer
             public Reduce reduce { get; set; }
             public int lvl { get; set; }
             public string zone { get; set; }
-            public int time { get; set; }
+            public DateTime time { get; set; }
         }
 
         public class Node
@@ -102,7 +102,10 @@ namespace Eorzea_Gatherer
                 {
                     foreach (var item in node.items)
                     {
-                        item.time = time;
+                        //Create a fake date and assign the hour of the day
+                        DateTime fakeEorzeaDay = new DateTime(1970, 1, 1, time, 0, 0);
+                        item.time = fakeEorzeaDay;
+
                         item.lvl = node.lvl;
                         item.zone = String.Format("{0} ({1}, {2})", node.zone, node.coords[0], node.coords[1]);
                         items.Add(item);

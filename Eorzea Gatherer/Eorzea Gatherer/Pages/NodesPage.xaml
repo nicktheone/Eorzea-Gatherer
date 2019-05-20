@@ -56,16 +56,10 @@
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
-                            <Label TextColor="#171717"
+                            <Label Text="{Binding time, StringFormat='{}{0:hh:mm} - 00:00 AM'}"
+                                   TextColor="#171717"
                                    FontSize="12"
                                    FontFamily="SegoeUI">
-                                <Label.FormattedText>
-                                    <FormattedString>
-                                        <Span Text="{Binding time}"/>
-                                        <Span Text=" - "/>
-                                        <Span Text="00:00 AM"/>
-                                    </FormattedString>
-                                </Label.FormattedText>
                             </Label>
                         </StackLayout>
                     </Grid>
