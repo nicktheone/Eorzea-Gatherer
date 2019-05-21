@@ -41,8 +41,9 @@ namespace Eorzea_Gatherer.Pages
             //Start the timer that calculates Eorzea Time
             Device.StartTimer(TimeSpan.FromMilliseconds(1000), () =>
             {
-                //https://stackoverflow.com/a/7875351/10617365
-                EorzeaTimeNow = DateTime.Now.ToEorzeaTime();
+                DateTime eorzeaTime = DateTime.Now.ToEorzeaTime();
+                DateTime fakeEorzeaTime = new DateTime(1970, 1, 1, eorzeaTime.Hour, eorzeaTime.Minute, 0);
+                EorzeaTimeNow = fakeEorzeaTime;
 
                 return true;
             });
