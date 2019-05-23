@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.572
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.452
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eorzea Gatherer.iOS", "Eorzea Gatherer\Eorzea Gatherer.iOS\Eorzea Gatherer.iOS.csproj", "{A69AA585-2E52-4BCD-A383-40AA69B09E39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eorzea Gatherer", "Eorzea Gatherer\Eorzea Gatherer\Eorzea Gatherer.csproj", "{E31E729D-43C9-4AB9-9432-D6C8E6E7E709}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eorzea Gatherer", "Eorzea Gatherer\Eorzea Gatherer\Eorzea Gatherer.csproj", "{E31E729D-43C9-4AB9-9432-D6C8E6E7E709}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
