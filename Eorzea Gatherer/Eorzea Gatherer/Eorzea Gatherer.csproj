@@ -25,17 +25,32 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\HomePage.xaml">
+    <EmbeddedResource Update="Views\HomeView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\NodesPage.xaml">
+    <EmbeddedResource Update="Views\NodesView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\SettingsPage.xaml">
+    <EmbeddedResource Update="Views\SettingsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\TrackingPage.xaml">
+    <EmbeddedResource Update="Views\TrackingView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\NodesView.xaml.cs">
+      <DependentUpon>NodesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\TrackingView.xaml.cs">
+      <DependentUpon>TrackingView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

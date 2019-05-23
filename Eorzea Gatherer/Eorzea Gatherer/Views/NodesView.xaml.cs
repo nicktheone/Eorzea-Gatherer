@@ -6,9 +6,9 @@ using Xamarin.Forms.Xaml;
 namespace Eorzea_Gatherer.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class NodesPage : ContentPage
+	public partial class NodesView : ContentPage
 	{
-		public NodesPage()
+		public NodesView()
 		{
 			InitializeComponent();
 

@@ -11,14 +11,14 @@ using Xamarin.Forms.Xaml;
 namespace Eorzea_Gatherer.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class HomePage : ContentPage
+	public partial class HomeView : ContentPage
 	{
         #region BindableProperty
         //https://forums.xamarin.com/discussion/comment/375451#Comment_375451
         public static readonly BindableProperty EorzeaTimeNowProperty = BindableProperty.Create(
             nameof(EorzeaTimeNow),
             typeof(DateTime),
-            typeof(HomePage),
+            typeof(HomeView),
             default(DateTime));
 
         public DateTime EorzeaTimeNow
@@ -28,7 +28,7 @@ namespace Eorzea_Gatherer.Views
         }
         #endregion
 
-        public HomePage()
+        public HomeView()
 		{
 			InitializeComponent();
 

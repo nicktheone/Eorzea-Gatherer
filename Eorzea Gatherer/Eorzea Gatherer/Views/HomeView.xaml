@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Eorzea_Gatherer.Views.HomePage"
-             x:Name="MyHomePage"
+             x:Class="Eorzea_Gatherer.Views.HomeView"
+             x:Name="MyHomeView"
              BackgroundColor="#F4F4F4">
     <ContentPage.Content>
         <Grid Padding="30">
@@ -28,7 +28,7 @@
                         <OnIdiom x:TypeArguments="x:Double" Phone="13" Tablet="25"/>
                     </Label.FontSize>
                 </Label>
-                <Label Text="{Binding EorzeaTimeNow, StringFormat='{}{0:hh:mm}', Source={x:Reference MyHomePage}}"
+                <Label Text="{Binding EorzeaTimeNow, StringFormat='{}{0:hh:mm}', Source={x:Reference MyHomeView}}"
                        TextColor="#171717"
                        FontFamily="Gilroy-Light"
                        HorizontalOptions="Center">

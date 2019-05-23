@@ -6,9 +6,9 @@ using Xamarin.Forms.Xaml;
 namespace Eorzea_Gatherer.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class TrackingPage : ContentPage
+	public partial class TrackingView : ContentPage
 	{
-        public TrackingPage()
+        public TrackingView()
 		{
 			InitializeComponent();
 

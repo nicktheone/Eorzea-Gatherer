@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Eorzea_Gatherer.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class SettingsPage : ContentPage
+	public partial class SettingsView : ContentPage
 	{
-		public SettingsPage()
+		public SettingsView()
 		{
 			InitializeComponent();
 		}
