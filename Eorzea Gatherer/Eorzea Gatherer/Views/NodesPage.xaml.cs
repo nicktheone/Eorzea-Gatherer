@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Eorzea_Gatherer.Models;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,7 +13,7 @@ namespace Eorzea_Gatherer.Views
 			InitializeComponent();
 
             //Load the list of unique items
-            nodesListView.ItemsSource = Nodes.SortedItem.SortedItems;
+            nodesListView.ItemsSource = SortedItem.SortedItems;
         }
 
         protected override void OnAppearing()
@@ -25,7 +26,7 @@ namespace Eorzea_Gatherer.Views
         {
             //Retrieve the object bound to the cell raising the event
             var mi = (MenuItem)sender;
-            var item = (Models.Item)mi.BindingContext;
+            var item = (Item)mi.BindingContext;
 
             //Add node to the tracking list view
             Nodes.TrackingList.Items.Add(item);

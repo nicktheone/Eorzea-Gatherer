@@ -54,11 +54,11 @@ namespace Eorzea_Gatherer
         public class SortedItem : ObservableCollection<Models.Item>
         {
             public string Header { get; set; }
-            public static List<SortedItem> SortedItems { get; set; }
+            public static List<Models.SortedItem> SortedItems { get; set; }
 
             static SortedItem()
             {
-                SortedItems = Nodes.GetSortedItems();
+                SortedItems = GetSortedItems();
             }
 
             //https://stackoverflow.com/questions/56158133/populating-a-grouped-listview-from-a-list
@@ -119,11 +119,11 @@ namespace Eorzea_Gatherer
         }
 
         //Split the list of gatherable items into different lists to bind into a grouped ListView
-        public static List<SortedItem> GetSortedItems()
+        public static List<Models.SortedItem> GetSortedItems()
         {
             List<Models.Item> items = GetItems();
 
-            List<SortedItem> sortedItems = new List<SortedItem>()
+            List<Models.SortedItem> sortedItems = new List<Models.SortedItem>()
             {
                 new SortedItem(items.Where(x => x.lvl == 50).ToList())
                 {
