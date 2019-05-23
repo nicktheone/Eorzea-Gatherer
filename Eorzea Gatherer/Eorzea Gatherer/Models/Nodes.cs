@@ -69,17 +69,17 @@ namespace Eorzea_Gatherer
         //}
         //#endregion
 
-        #region Tracking List
-        public class TrackingList
-        {
-            public static ObservableCollection<Models.Item> Items { get; set; }
+        //#region Tracking List
+        //public class TrackingList
+        //{
+        //    public static ObservableCollection<Models.Item> Items { get; set; }
 
-            static TrackingList()
-            {
-                Items = new ObservableCollection<Models.Item>();
-            }
-        }
-        #endregion
+        //    static TrackingList()
+        //    {
+        //        Items = new ObservableCollection<Models.Item>();
+        //    }
+        //}
+        //#endregion
 
         #region Methods
         //Get the nodes from the JSON file and return a list of nodes 
@@ -92,10 +92,10 @@ namespace Eorzea_Gatherer
         }
 
         //Compile a list of gatherable items from the nodes list
-        private static List<Models.Item> GetItems()
+        private static List<Item> GetItems()
         {
             List<JSON.Node> nodes = GetNodes();
-            List<Models.Item> items = new List<Models.Item>();
+            List<Item> items = new List<Item>();
 
             foreach (var node in nodes)
             {
@@ -106,7 +106,7 @@ namespace Eorzea_Gatherer
                         //Create a fake date and assign the hour of the day
                         DateTime fakeEorzeaDay = new DateTime(1970, 1, 1, time, 0, 0);
 
-                        Models.Item singleItem = new Models.Item(item);
+                        Item singleItem = new Item(item);
                         singleItem.time = fakeEorzeaDay;
                         singleItem.lvl = node.lvl;
                         singleItem.zone = String.Format("{0} ({1}, {2})", node.zone, node.coords[0], node.coords[1]);
@@ -153,16 +153,24 @@ namespace Eorzea_Gatherer
         //Compile a list of gatherable items from the nodes list (not used)
         private static List<Item> GetUniqueItems(List<JSON.Node> nodes)
         {
-            List<Nodes.Item> uniqueItems = new List<Item>();
+            List<Item> uniqueItems = new List<Item>();
 
             foreach (var node in nodes)
             {
-                foreach (var item in node.items)
+                foreach (var time in node.time)
                 {
-                    //https://stackoverflow.com/a/2629303/10617365
-                    if (!uniqueItems.Any(x => x.id == item.id))
+                    foreach (var item in node.items)
                     {
-                        uniqueItems.Add(item);
+                        //https://stackoverflow.com/a/2629303/10617365
+                        if (!uniqueItems.Any(x => x.id == item.id))
+                        {
+                            uniqueItems.Add(new Item(item)
+                            {
+                                lvl = node.lvl,
+                                zone = String.Format("{0} ({1}, {2})", node.zone, node.coords[0], node.coords[1]),
+                                time = new DateTime(1970, 1, 1, time, 0, 0)
+                            });
+                        }
                     }
                 }
             }
@@ -194,7 +202,7 @@ namespace Eorzea_Gatherer
                 s = streamReader.ReadToEnd();
             }
 
-            Nodes.TrackingList.Items = JsonConvert.DeserializeObject<ObservableCollection<Models.Item>>(s);
+            TrackingList.Items = JsonConvert.DeserializeObject<ObservableCollection<Item>>(s);
         }
         #endregion
     }
