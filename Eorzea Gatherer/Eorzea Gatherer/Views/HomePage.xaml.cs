@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Eorzea_Gatherer.Pages
+namespace Eorzea_Gatherer.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class HomePage : ContentPage
@@ -30,7 +30,7 @@ namespace Eorzea_Gatherer.Pages
 
         public HomePage()
 		{
-			InitializeComponent ();
+			InitializeComponent();
 
             //https://xamarinhelp.com/xamarin-forms-timer/
             //Start the timer that calculates Eorzea Time

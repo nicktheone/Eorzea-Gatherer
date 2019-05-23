@@ -1,34 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Eorzea_Gatherer.Pages.NodesPage"
+             x:Class="Eorzea_Gatherer.Views.TrackingPage"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
              ios:Page.UseSafeArea="true"
              BackgroundColor="#F4F4F4">
-    <!--https://xamarinhelp.com/safeareainsets-xamarin-forms-ios/-->
-    <ListView x:Name="nodesListView"
-              IsGroupingEnabled="True"
+    <ListView x:Name="trackingListView"
               HasUnevenRows="True"
               BackgroundColor="#F4F4F4"
-              Margin="30, 15, 30, 0">
-        <ListView.GroupHeaderTemplate>
-            <DataTemplate>
-                <ViewCell Height="30">
-                    <Label BackgroundColor="#F4F4F4"
-                           Text="{Binding Header, StringFormat='Level {0}'}"
-                           FontFamily="SegoeUI"
-                           TextColor="#171717"
-                           VerticalTextAlignment="Center"
-                           Margin="5, 0, 0, 0"/>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.GroupHeaderTemplate>
+              Margin="30, 30, 30, 0">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
                     <ViewCell.ContextActions>
-                        <MenuItem Clicked="AddTracking"
-                                  Text="Add to Tracking"/>
+                        <MenuItem Clicked="RemoveTracking"
+                                  Text="Remove from Tracking"
+                                  IsDestructive="True"/>
                     </ViewCell.ContextActions>
                     <Grid Padding="0, 5">
                         <Grid.ColumnDefinitions>
@@ -56,10 +43,16 @@
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
-                            <Label Text="{Binding time, StringFormat='{}{0:hh:mm tt} - 00:00 AM'}"
-                                   TextColor="#171717"
+                            <Label TextColor="#171717"
                                    FontSize="12"
                                    FontFamily="SegoeUI">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding time, StringFormat='{}{0:hh:mm tt}'}"/>
+                                        <Span Text=" - "/>
+                                        <Span Text="00:00 AM"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
                             </Label>
                         </StackLayout>
                     </Grid>
