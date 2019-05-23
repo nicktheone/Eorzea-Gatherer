@@ -30,23 +30,25 @@ namespace Eorzea_Gatherer.Pages
 
         public HomePage()
 		{
-			InitializeComponent ();;
-        }
-
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
+			InitializeComponent ();
 
             //https://xamarinhelp.com/xamarin-forms-timer/
             //Start the timer that calculates Eorzea Time
             Device.StartTimer(TimeSpan.FromMilliseconds(1000), () =>
             {
                 DateTime eorzeaTime = DateTime.Now.ToEorzeaTime();
+
+                ////Create a fake date and assign to it the hour and the minute of the day
                 DateTime fakeEorzeaTime = new DateTime(1970, 1, 1, eorzeaTime.Hour, eorzeaTime.Minute, 0);
                 EorzeaTimeNow = fakeEorzeaTime;
 
                 return true;
             });
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
         }
     }
 
