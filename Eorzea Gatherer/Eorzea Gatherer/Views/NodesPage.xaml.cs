@@ -29,7 +29,7 @@ namespace Eorzea_Gatherer.Views
             var item = (Item)mi.BindingContext;
 
             //Add node to the tracking list view
-            Nodes.TrackingList.Items.Add(item);
+            TrackingList.Items.Add(item);
 
             //Save the tracking list on the disk
             Nodes.SaveTrackingList();

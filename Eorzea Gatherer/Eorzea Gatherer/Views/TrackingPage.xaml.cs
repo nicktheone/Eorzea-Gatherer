@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Eorzea_Gatherer.Models;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -22,7 +23,7 @@ namespace Eorzea_Gatherer.Views
             }
 
             //Set and refresh the ListView source
-            trackingListView.ItemsSource = Nodes.TrackingList.Items;
+            trackingListView.ItemsSource = TrackingList.Items;
         }
 
         protected override void OnAppearing()
@@ -38,7 +39,7 @@ namespace Eorzea_Gatherer.Views
             var item = (Models.Item)mi.BindingContext;
 
             //Remove node to the tracking list view
-            Nodes.TrackingList.Items.Remove(item);
+            TrackingList.Items.Remove(item);
 
             //Save the tracking list on the disk
             Nodes.SaveTrackingList();
