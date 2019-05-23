@@ -28,7 +28,7 @@
                         <OnIdiom x:TypeArguments="x:Double" Phone="13" Tablet="25"/>
                     </Label.FontSize>
                 </Label>
-                <Label Text="{Binding EorzeaTimeNow, StringFormat='{}{0:hh:mm}', Source={x:Reference MyHomeView}}"
+                <Label Text="{Binding EorzeaTimeNow, StringFormat='{}{0:hh:mm tt}', Source={x:Reference MyHomeView}}"
                        TextColor="#171717"
                        FontFamily="Gilroy-Light"
                        HorizontalOptions="Center">

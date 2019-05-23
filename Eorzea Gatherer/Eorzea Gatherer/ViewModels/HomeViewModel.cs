@@ -6,9 +6,20 @@ using Xamarin.Forms;
 
 namespace Eorzea_Gatherer.ViewModels
 {
-    public class HomeViewModel
+    public class HomeViewModel : BindableObject
     {
-        
+        //https://forums.xamarin.com/discussion/comment/375451#Comment_375451
+        public static readonly BindableProperty EorzeaTimeNowProperty = BindableProperty.Create(
+            nameof(EorzeaTimeNow),
+            typeof(DateTime),
+            typeof(HomeView),
+            default(DateTime));
+
+        public DateTime EorzeaTimeNow
+        {
+            get => (DateTime)GetValue(EorzeaTimeNowProperty);
+            set => SetValue(EorzeaTimeNowProperty, value);
+        }
     }
 
     public static class Extension
