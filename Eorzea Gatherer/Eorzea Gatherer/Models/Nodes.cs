@@ -10,64 +10,64 @@ namespace Eorzea_Gatherer
 {
     public class Nodes
     {
-        #region JSON
-        public class Reduce
-        {
-            public string item { get; set; }
-            public int icon { get; set; }
-        }
+        //#region JSON
+        //public class Reduce
+        //{
+        //    public string item { get; set; }
+        //    public int icon { get; set; }
+        //}
 
-        public class Item
-        {
-            public string item { get; set; }
-            public string icon { get; set; }
-            public int id { get; set; }
-            public string slot { get; set; }
-            public string scrip { get; set; }
-            public Reduce reduce { get; set; }
-            public int lvl { get; set; }
-            public string zone { get; set; }
-            public DateTime time { get; set; }
-        }
+        //public class Item
+        //{
+        //    public string item { get; set; }
+        //    public string icon { get; set; }
+        //    public int id { get; set; }
+        //    public string slot { get; set; }
+        //    public string scrip { get; set; }
+        //    public Reduce reduce { get; set; }
+        //    public int lvl { get; set; }
+        //    public string zone { get; set; }
+        //    public DateTime time { get; set; }
+        //}
 
-        public class Node
-        {
-            public string type { get; set; }
-            public string func { get; set; }
-            public List<Item> items { get; set; }
-            public int stars { get; set; }
-            public List<int> time { get; set; }
-            public string title { get; set; }
-            public string zone { get; set; }
-            public List<int> coords { get; set; }
-            public string name { get; set; }
-            public int uptime { get; set; }
-            public int lvl { get; set; }
-            public int id { get; set; }
-            public double patch { get; set; }
-            public string condition { get; set; }
-            public string bonus { get; set; }
-        }
-        #endregion
+        //public class Node
+        //{
+        //    public string type { get; set; }
+        //    public string func { get; set; }
+        //    public List<Item> items { get; set; }
+        //    public int stars { get; set; }
+        //    public List<int> time { get; set; }
+        //    public string title { get; set; }
+        //    public string zone { get; set; }
+        //    public List<int> coords { get; set; }
+        //    public string name { get; set; }
+        //    public int uptime { get; set; }
+        //    public int lvl { get; set; }
+        //    public int id { get; set; }
+        //    public double patch { get; set; }
+        //    public string condition { get; set; }
+        //    public string bonus { get; set; }
+        //}
+        //#endregion
 
-        #region Sorted Lists
-        public class SortedItem : ObservableCollection<Models.Item>
-        {
-            public string Header { get; set; }
-            public static List<Models.SortedItem> SortedItems { get; set; }
+        //#region Sorted Lists
+        //public class SortedItem : ObservableCollection<Models.Item>
+        //{
+        //    public string Header { get; set; }
+        //    public static List<Models.SortedItem> SortedItems { get; set; }
 
-            static SortedItem()
-            {
-                SortedItems = GetSortedItems();
-            }
+        //    static SortedItem()
+        //    {
+        //        SortedItems = GetSortedItems();
+        //    }
 
-            //https://stackoverflow.com/questions/56158133/populating-a-grouped-listview-from-a-list
-            public SortedItem(List<Models.Item> items) : base(items)
-            {
+        //    //https://stackoverflow.com/questions/56158133/populating-a-grouped-listview-from-a-list
+        //    public SortedItem(List<Models.Item> items) : base(items)
+        //    {
                     
-            }
-        }
-        #endregion
+        //    }
+        //}
+        //#endregion
 
         #region Tracking List
         public class TrackingList
@@ -119,11 +119,11 @@ namespace Eorzea_Gatherer
         }
 
         //Split the list of gatherable items into different lists to bind into a grouped ListView
-        public static List<Models.SortedItem> GetSortedItems()
+        public static List<SortedItem> GetSortedItems()
         {
             List<Models.Item> items = GetItems();
 
-            List<Models.SortedItem> sortedItems = new List<Models.SortedItem>()
+            List<SortedItem> sortedItems = new List<SortedItem>()
             {
                 new SortedItem(items.Where(x => x.lvl == 50).ToList())
                 {
@@ -151,7 +151,7 @@ namespace Eorzea_Gatherer
         }
 
         //Compile a list of gatherable items from the nodes list (not used)
-        private static List<Item> GetUniqueItems(List<Node> nodes)
+        private static List<Item> GetUniqueItems(List<JSON.Node> nodes)
         {
             List<Nodes.Item> uniqueItems = new List<Item>();
 

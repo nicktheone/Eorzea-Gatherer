@@ -16,7 +16,7 @@ namespace Eorzea_Gatherer.Models
         }
 
         //https://stackoverflow.com/questions/56158133/populating-a-grouped-listview-from-a-list
-        public SortedItem(List<Models.Item> items) : base(items)
+        public SortedItem(List<Item> items) : base(items)
         {
 
         }
