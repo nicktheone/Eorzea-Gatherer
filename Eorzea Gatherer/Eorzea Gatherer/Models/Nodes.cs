@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using Eorzea_Gatherer.Models;
 
 namespace Eorzea_Gatherer
 {
@@ -50,7 +51,7 @@ namespace Eorzea_Gatherer
         #endregion
 
         #region Sorted Lists
-        public class SortedItem : ObservableCollection<Item>
+        public class SortedItem : ObservableCollection<Models.Item>
         {
             public string Header { get; set; }
             public static List<SortedItem> SortedItems { get; set; }
@@ -61,7 +62,7 @@ namespace Eorzea_Gatherer
             }
 
             //https://stackoverflow.com/questions/56158133/populating-a-grouped-listview-from-a-list
-            public SortedItem(List<Item> items) : base(items)
+            public SortedItem(List<Models.Item> items) : base(items)
             {
                     
             }
@@ -71,30 +72,30 @@ namespace Eorzea_Gatherer
         #region Tracking List
         public class TrackingList
         {
-            public static ObservableCollection<Item> Items { get; set; }
+            public static ObservableCollection<Models.Item> Items { get; set; }
 
             static TrackingList()
             {
-                Items = new ObservableCollection<Item>();
+                Items = new ObservableCollection<Models.Item>();
             }
         }
         #endregion
 
         #region Methods
         //Get the nodes from the JSON file and return a list of nodes 
-        private static List<Node> GetNodes()
+        private static List<JSON.Node> GetNodes()
         {
             string s = File.ReadAllText("Nodes.json");
-            List<Node> nodes = JsonConvert.DeserializeObject<List<Node>>(s);
+            List<JSON.Node> nodes = JsonConvert.DeserializeObject<List<JSON.Node>>(s);
 
             return nodes;
         }
 
         //Compile a list of gatherable items from the nodes list
-        private static List<Item> GetItems()
+        private static List<Models.Item> GetItems()
         {
-            List<Node> nodes = GetNodes();
-            List<Item> items = new List<Item>();
+            List<JSON.Node> nodes = GetNodes();
+            List<Models.Item> items = new List<Models.Item>();
 
             foreach (var node in nodes)
             {
@@ -104,11 +105,12 @@ namespace Eorzea_Gatherer
                     {
                         //Create a fake date and assign the hour of the day
                         DateTime fakeEorzeaDay = new DateTime(1970, 1, 1, time, 0, 0);
-                        item.time = fakeEorzeaDay;
 
-                        item.lvl = node.lvl;
-                        item.zone = String.Format("{0} ({1}, {2})", node.zone, node.coords[0], node.coords[1]);
-                        items.Add(item);
+                        Models.Item singleItem = new Models.Item(item);
+                        singleItem.time = fakeEorzeaDay;
+                        singleItem.lvl = node.lvl;
+                        singleItem.zone = String.Format("{0} ({1}, {2})", node.zone, node.coords[0], node.coords[1]);
+                        items.Add(singleItem);
                     }
                 }
             }
@@ -119,7 +121,7 @@ namespace Eorzea_Gatherer
         //Split the list of gatherable items into different lists to bind into a grouped ListView
         public static List<SortedItem> GetSortedItems()
         {
-            List<Item> items = GetItems();
+            List<Models.Item> items = GetItems();
 
             List<SortedItem> sortedItems = new List<SortedItem>()
             {
@@ -192,7 +194,7 @@ namespace Eorzea_Gatherer
                 s = streamReader.ReadToEnd();
             }
 
-            Nodes.TrackingList.Items = JsonConvert.DeserializeObject<ObservableCollection<Nodes.Item>>(s);
+            Nodes.TrackingList.Items = JsonConvert.DeserializeObject<ObservableCollection<Models.Item>>(s);
         }
         #endregion
     }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Eorzea_Gatherer.Models
 {
-    class JSON
+    public class JSON
     {
         public class Reduce
         {

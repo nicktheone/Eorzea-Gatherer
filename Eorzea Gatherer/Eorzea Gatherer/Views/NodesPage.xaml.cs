@@ -25,7 +25,7 @@ namespace Eorzea_Gatherer.Views
         {
             //Retrieve the object bound to the cell raising the event
             var mi = (MenuItem)sender;
-            var item = (Nodes.Item)mi.BindingContext;
+            var item = (Models.Item)mi.BindingContext;
 
             //Add node to the tracking list view
             Nodes.TrackingList.Items.Add(item);
