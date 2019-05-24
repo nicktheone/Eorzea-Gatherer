@@ -79,6 +79,34 @@ namespace Eorzea_Gatherer.ViewModels
 
             return sortedItems;
         }
+
+        //Compile a list of gatherable items from the nodes list (not used)
+        private static List<Item> GetUniqueItems(List<JSON.Node> nodes)
+        {
+            List<Item> uniqueItems = new List<Item>();
+
+            foreach (var node in nodes)
+            {
+                foreach (var time in node.time)
+                {
+                    foreach (var item in node.items)
+                    {
+                        //https://stackoverflow.com/a/2629303/10617365
+                        if (!uniqueItems.Any(x => x.id == item.id))
+                        {
+                            uniqueItems.Add(new Item(item)
+                            {
+                                lvl = node.lvl,
+                                zone = String.Format("{0} ({1}, {2})", node.zone, node.coords[0], node.coords[1]),
+                                time = new DateTime(1970, 1, 1, time, 0, 0)
+                            });
+                        }
+                    }
+                }
+            }
+
+            return uniqueItems;
+        }
         #endregion
     }
 }
