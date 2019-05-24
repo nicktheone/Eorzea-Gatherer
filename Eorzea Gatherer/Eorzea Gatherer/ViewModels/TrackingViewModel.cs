@@ -10,6 +10,8 @@ namespace Eorzea_Gatherer.ViewModels
 {
     class TrackingViewModel
     {
+        public static ObservableCollection<Item> Items { get; set; }
+
         //Read the tracking list from the disk
         public static void ReadTrackingList()
         {
@@ -20,7 +22,7 @@ namespace Eorzea_Gatherer.ViewModels
                 s = streamReader.ReadToEnd();
             }
 
-            TrackingList.Items = JsonConvert.DeserializeObject<ObservableCollection<Item>>(s);
+            Items = JsonConvert.DeserializeObject<ObservableCollection<Item>>(s);
         }
 
         //Write the tracking list to the disk
@@ -33,7 +35,7 @@ namespace Eorzea_Gatherer.ViewModels
                     Formatting = Formatting.Indented
                 };
 
-                jsonSerializer.Serialize(streamWriter, TrackingList.Items);
+                jsonSerializer.Serialize(streamWriter, Items);
             }
         }
     }

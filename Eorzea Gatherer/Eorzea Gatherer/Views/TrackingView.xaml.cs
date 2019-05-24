@@ -24,7 +24,7 @@ namespace Eorzea_Gatherer.Views
             }
 
             //Set and refresh the ListView source
-            trackingListView.ItemsSource = TrackingList.Items;
+            trackingListView.ItemsSource = TrackingViewModel.Items;
         }
 
         protected override void OnAppearing()
@@ -40,7 +40,7 @@ namespace Eorzea_Gatherer.Views
             var item = (Item)mi.BindingContext;
 
             //Remove node to the tracking list view
-            TrackingList.Items.Remove(item);
+            TrackingViewModel.Items.Remove(item);
 
             //Save the tracking list on the disk
             TrackingViewModel.SaveTrackingList();
