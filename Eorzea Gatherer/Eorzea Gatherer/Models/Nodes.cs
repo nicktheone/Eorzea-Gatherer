@@ -178,32 +178,32 @@ namespace Eorzea_Gatherer
             return uniqueItems;
         }
 
-        //Write the tracking list to the disk
-        public static void SaveTrackingList()
-        {
-            using (StreamWriter streamWriter = File.CreateText(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Tracking.json")))
-            {
-                JsonSerializer jsonSerializer = new JsonSerializer()
-                {
-                    Formatting = Formatting.Indented
-                };
+        ////Write the tracking list to the disk
+        //public static void SaveTrackingList()
+        //{
+        //    using (StreamWriter streamWriter = File.CreateText(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Tracking.json")))
+        //    {
+        //        JsonSerializer jsonSerializer = new JsonSerializer()
+        //        {
+        //            Formatting = Formatting.Indented
+        //        };
 
-                jsonSerializer.Serialize(streamWriter, TrackingList.Items);
-            }
-        }
+        //        jsonSerializer.Serialize(streamWriter, TrackingList.Items);
+        //    }
+        //}
 
-        //Read the tracking list from the disk
-        public static void ReadTrackingList()
-        {
-            string s = null;
+        ////Read the tracking list from the disk
+        //public static void ReadTrackingList()
+        //{
+        //    string s = null;
 
-            using (StreamReader streamReader = new StreamReader(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Tracking.json")))
-            {
-                s = streamReader.ReadToEnd();
-            }
+        //    using (StreamReader streamReader = new StreamReader(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Tracking.json")))
+        //    {
+        //        s = streamReader.ReadToEnd();
+        //    }
 
-            TrackingList.Items = JsonConvert.DeserializeObject<ObservableCollection<Item>>(s);
-        }
+        //    TrackingList.Items = JsonConvert.DeserializeObject<ObservableCollection<Item>>(s);
+        //}
         #endregion
     }
 }
