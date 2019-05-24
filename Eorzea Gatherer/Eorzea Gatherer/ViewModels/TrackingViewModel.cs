@@ -1,10 +1,8 @@
 ﻿using Eorzea_Gatherer.Models;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Text;
 
 namespace Eorzea_Gatherer.ViewModels
 {
@@ -12,6 +10,7 @@ namespace Eorzea_Gatherer.ViewModels
     {
         public static ObservableCollection<Item> Items { get; set; }
 
+        #region Methods
         //Read the tracking list from the disk
         public static void ReadTrackingList()
         {
@@ -38,5 +37,6 @@ namespace Eorzea_Gatherer.ViewModels
                 jsonSerializer.Serialize(streamWriter, Items);
             }
         }
+        #endregion
     }
 }

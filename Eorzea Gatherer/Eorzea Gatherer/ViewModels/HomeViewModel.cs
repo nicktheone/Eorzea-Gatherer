@@ -1,7 +1,5 @@
 ﻿using Eorzea_Gatherer.Views;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Xamarin.Forms;
 
 namespace Eorzea_Gatherer.ViewModels
