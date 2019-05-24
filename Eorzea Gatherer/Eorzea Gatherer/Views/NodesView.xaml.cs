@@ -14,7 +14,7 @@ namespace Eorzea_Gatherer.Views
 			InitializeComponent();
 
             //Load the list of unique items
-            nodesListView.ItemsSource = SortedItem.SortedItems;
+            nodesListView.ItemsSource = NodesViewModel.SortedItems;
         }
 
         protected override void OnAppearing()
