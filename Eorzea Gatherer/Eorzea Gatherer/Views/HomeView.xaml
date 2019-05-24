@@ -147,29 +147,29 @@
                     </StackLayout>
                 </Grid>
             </ScrollView>-->
-            <ScrollView>
+            <ScrollView Orientation="Horizontal" 
+                        VerticalOptions="End"
+                        HorizontalScrollBarVisibility="Never">
                 <FlexLayout BindableLayout.ItemsSource="{Binding Items}"
-                            Wrap="Wrap"
                             Direction="Row"
-                            JustifyContent="Center"
-                            AlignItems="Center"
-                            AlignContent="Start">
+                            HeightRequest="100">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
-                            <StackLayout Grid.Column="0">
+                            <StackLayout Margin="5, 0">
                                 <Label Text="00:00"
                                        FontSize="12"
                                        FontFamily="SegoeUI-Semibold"
                                        HorizontalTextAlignment="Center"/>
-                                <Image Source=""
-                                       BackgroundColor="Black"
+                                <Image Source="{Binding icon, StringFormat='Icons/{0}.png'}"
                                        WidthRequest="52"
                                        HeightRequest="52"/>
                                 <Label Text="{Binding item}"
                                        TextColor="#171717"
                                        FontFamily="SegoeUI"
                                        FontSize="12"
-                                       HorizontalTextAlignment="Center"/>
+                                       HorizontalTextAlignment="Center"
+                                       WidthRequest="52"
+                                       LineBreakMode="TailTruncation"/>
                             </StackLayout>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>

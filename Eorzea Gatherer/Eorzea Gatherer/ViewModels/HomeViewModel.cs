@@ -1,7 +1,9 @@
 ﻿using Eorzea_Gatherer.Models;
 using Eorzea_Gatherer.Views;
+using Newtonsoft.Json;
 using System;
 using System.Collections.ObjectModel;
+using System.IO;
 using Xamarin.Forms;
 
 namespace Eorzea_Gatherer.ViewModels
@@ -39,7 +41,21 @@ namespace Eorzea_Gatherer.ViewModels
 
 
 
-        public static ObservableCollection<Item> Items { get; set; }
+        public ObservableCollection<Item> Items { get; set; } = ReadTrackingList();
+        public static ObservableCollection<Item> ReadTrackingList()
+        {
+            string s = null;
+
+            using (StreamReader streamReader = new StreamReader(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Tracking.json")))
+            {
+                s = streamReader.ReadToEnd();
+            }
+
+            var items = new ObservableCollection<Item>();
+            items = JsonConvert.DeserializeObject<ObservableCollection<Item>>(s);
+
+            return items;
+        }
     }
 
     public static class Extension

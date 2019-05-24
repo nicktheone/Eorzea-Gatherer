@@ -12,7 +12,7 @@ namespace Eorzea_Gatherer.Views
 			InitializeComponent();
 
             HomeViewModel homeViewModel = new HomeViewModel();
-            BindingContext = homeViewModel;
+            BindingContext = homeViewModel;            
         }
 
         protected override void OnAppearing()
