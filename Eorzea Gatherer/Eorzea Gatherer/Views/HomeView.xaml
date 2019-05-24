@@ -42,7 +42,7 @@
             <BoxView Margin="0, 130" BackgroundColor="Black" 
                      HeightRequest="1"
                      VerticalOptions="EndAndExpand"/>
-            <ScrollView Orientation="Horizontal" 
+            <!--<ScrollView Orientation="Horizontal" 
                         VerticalOptions="Fill"
                         HorizontalScrollBarVisibility="Never"
                         VerticalScrollBarVisibility="Never">
@@ -146,6 +146,34 @@
                            HorizontalTextAlignment="Center"/>
                     </StackLayout>
                 </Grid>
+            </ScrollView>-->
+            <ScrollView>
+                <FlexLayout BindableLayout.ItemsSource="{Binding Items}"
+                            Wrap="Wrap"
+                            Direction="Row"
+                            JustifyContent="Center"
+                            AlignItems="Center"
+                            AlignContent="Start">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Grid.Column="0">
+                                <Label Text="00:00"
+                                       FontSize="12"
+                                       FontFamily="SegoeUI-Semibold"
+                                       HorizontalTextAlignment="Center"/>
+                                <Image Source=""
+                                       BackgroundColor="Black"
+                                       WidthRequest="52"
+                                       HeightRequest="52"/>
+                                <Label Text="{Binding item}"
+                                       TextColor="#171717"
+                                       FontFamily="SegoeUI"
+                                       FontSize="12"
+                                       HorizontalTextAlignment="Center"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </FlexLayout>
             </ScrollView>
         </Grid>
     </ContentPage.Content>

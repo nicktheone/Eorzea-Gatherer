@@ -1,5 +1,7 @@
-﻿using Eorzea_Gatherer.Views;
+﻿using Eorzea_Gatherer.Models;
+using Eorzea_Gatherer.Views;
 using System;
+using System.Collections.ObjectModel;
 using Xamarin.Forms;
 
 namespace Eorzea_Gatherer.ViewModels
@@ -34,6 +36,10 @@ namespace Eorzea_Gatherer.ViewModels
                 return true;
             });
         }
+
+
+
+        public static ObservableCollection<Item> Items { get; set; }
     }
 
     public static class Extension
