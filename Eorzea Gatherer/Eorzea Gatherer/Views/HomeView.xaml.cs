@@ -7,11 +7,12 @@ namespace Eorzea_Gatherer.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class HomeView : ContentPage
 	{
+        private readonly HomeViewModel homeViewModel = new HomeViewModel();
+
         public HomeView()
 		{
 			InitializeComponent();
 
-            HomeViewModel homeViewModel = new HomeViewModel();
             BindingContext = homeViewModel;            
         }
 
